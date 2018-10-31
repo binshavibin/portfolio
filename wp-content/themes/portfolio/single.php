@@ -22,6 +22,13 @@
               if(!in_array($key, $notToDisplay))
                   echo '<p>'.$key . " :  " . $value[0] . "</p>";
             }
+            $tags = get_the_tags($post->ID);
+            if(!empty($tags)) {
+                foreach ($tags as $key => $value) {
+                   echo '<span class="badge badge-pill badge-success">'.$value->name.'</span>';
+                }
+            }
+       //  echo '<pre>';   print_r($tags);
             ?>
 
 
