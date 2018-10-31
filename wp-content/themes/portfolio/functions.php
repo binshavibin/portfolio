@@ -27,6 +27,7 @@ show_admin_bar(true);
    }
 
    add_action('widgets_init','wp_advertise_widget');
+
    function wp_advertise_widget() 
    {
     register_widget('Advertisement');
@@ -148,6 +149,22 @@ add_action( 'widgets_init', 'wpb_load_widget' );
  		}
  		return $itemList;
  	}
+    add_action('init','create_new_posttype');
+    function create_new_posttype() {
+        register_post_type('videos',
+            array(
+                'labels' => array(
+                    'name' => __('videos'),
+                    'singylar_name' => __('video')
+                ) ,
+                 'taxonomies' => array('category'), 
+                 'show_ui' => true,  
+                'public' =>true,
+                'has_archive' => true,
+                'supports' => array('title','editor','thumbnail','custom-fields','comments') 
 
+            )
+        );
+    }
 
 ?>
