@@ -25,10 +25,10 @@
             $tags = get_the_tags($post->ID);
             if(!empty($tags)) {
                 foreach ($tags as $key => $value) {
-                   echo '<span class="badge badge-pill badge-success">'.$value->name.'</span>';
+                   echo '<a href="'.get_tag_link($value->term_id).'"><span class="badge badge-pill badge-success">'.$value->name.'</span></a>';
                 }
             }
-       //  echo '<pre>';   print_r($tags);
+         
             ?>
 
 
